@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_home" android:title="@string/navigation_fragment_home" android:checked="true" />
+        <item android:id="@+id/nav_sensor_fusion" android:title="@string/navigation_fragment_sensor_fusion" />
+    </group>
+</menu>

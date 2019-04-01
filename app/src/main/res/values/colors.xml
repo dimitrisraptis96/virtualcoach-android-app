@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="really_light">#f3e5f5</color>
+    <color name="light">#e1bee7</color>
+    <color name="really_dark">#4a148c</color>
+    <color name="dark">#6a1b9a</color>
+    <color name="popping">#aa00ff</color>
+</resources>

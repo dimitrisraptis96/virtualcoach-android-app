@@ -1,0 +1,19 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar" >>
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/dark</item>
+        <item name="colorPrimaryDark">@color/really_dark</item>
+        <item name="colorAccent">@color/popping</item>
+    </style>
+
+    <style name="HorizontalLine">
+        <item name="android:layout_height">2dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_width">fill_parent</item>
+    </style>
+
+    <style name="MyAppTheme" parent="AppTheme" />
+</resources>
