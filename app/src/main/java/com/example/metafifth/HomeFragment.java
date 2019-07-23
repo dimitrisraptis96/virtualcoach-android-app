@@ -5,13 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.mbientlab.metawear.UnsupportedModuleException;
-import com.mbientlab.metawear.module.Led;
-import com.mbientlab.metawear.Route;
-import com.mbientlab.metawear.module.Switch;
+
 
 
 import java.util.Locale;
@@ -19,9 +16,6 @@ import java.util.Locale;
 import bolts.Task;
 
 public class HomeFragment extends FragmentBase {
-    private Led ledModule;
-    private int switchRouteId = -1;
-
 
     public HomeFragment() {
         super(R.string.navigation_fragment_home);

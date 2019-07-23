@@ -5,38 +5,42 @@
     android:layout_height="match_parent">
 
     <Switch xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/sample_control"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:checked="false"
         android:text="@string/label_start_sample"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/sample_control"
-        android:textColor="@color/popping"
-        android:checked="false" />
-
+        android:textColor="@color/popping" />
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="horizontal" android:layout_width="fill_parent"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        style="?android:attr/buttonBarStyle" >
+        android:orientation="horizontal">
 
         <Button
+            android:id="@+id/layout_two_button_left"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            style="?android:attr/buttonBarButtonStyle"
-            android:id="@+id/layout_two_button_left" />
+            android:layout_weight="1" />
 
-        <!--<Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            style="?android:attr/buttonBarButtonStyle"
-            android:id="@+id/layout_two_button_right" />-->
+
     </LinearLayout>
 
 
+    <View
+        style="@style/HorizontalLine"
+        android:background="@android:color/darker_gray" />
+
     <WebView
-    android:id="@+id/webview"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" />
+
+
+
+
 
 </LinearLayout>

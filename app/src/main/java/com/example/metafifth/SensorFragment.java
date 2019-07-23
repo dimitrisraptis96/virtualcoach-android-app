@@ -3,6 +3,7 @@ package com.example.metafifth;
 
 import android.os.Bundle;
 
+import android.webkit.ServiceWorkerClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Switch;
@@ -21,7 +22,7 @@ public abstract class SensorFragment extends FragmentBase {
 
     private final int layoutId;
     final String PUBLIC_URL = "https://flex-your-muscle.netlify.com/";
-    final String DEV_URL = "http://192.168.1.6" + ":8000/";
+    final String DEV_URL = "http://192.168.1.7" + ":8000/";
 
     static WebView mWebView = null;
 
@@ -48,14 +49,22 @@ public abstract class SensorFragment extends FragmentBase {
     public void onViewCreated(final View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mWebView = view.findViewById(R.id.webview);
-        mWebView.loadUrl(DEV_URL);
+        mWebView.loadUrl(PUBLIC_URL);
 
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
         Button clearButton= view.findViewById(R.id.layout_two_button_left);
         clearButton.setText(R.string.label_clear);
+
+        //Button calibrateButton= view.findViewById(R.id.calibrate);
+        //calibrateButton.setOnClickListener(view2->calibrate());
+
+        Switch switched = view.findViewById(R.id.sample_control);
         clearButton.setOnClickListener(view1 -> clean());
+        clearButton.setOnClickListener(v -> {
+            switched.setChecked(false);// Code here executes on main thread after user presses button
+        });
 
         ((Switch) view.findViewById(R.id.sample_control)).setOnCheckedChangeListener((compoundButton, b) -> {
             if (b) {
@@ -71,4 +80,5 @@ public abstract class SensorFragment extends FragmentBase {
 
     protected abstract void setup();
     protected abstract void clean();
+    //protected abstract void calibrate();
 }

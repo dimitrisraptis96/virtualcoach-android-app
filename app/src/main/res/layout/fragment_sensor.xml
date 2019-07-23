@@ -25,13 +25,12 @@
             style="?android:attr/buttonBarButtonStyle"
             android:id="@+id/layout_two_button_left" />
 
-       <!-- <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            style="?android:attr/buttonBarButtonStyle"
-            android:id="@+id/layout_two_button_right" />-->
     </LinearLayout>
+
+
+    <View
+        style="@style/HorizontalLine"
+        android:background="@android:color/darker_gray" />
 
     <WebView
         android:id="@+id/webview"

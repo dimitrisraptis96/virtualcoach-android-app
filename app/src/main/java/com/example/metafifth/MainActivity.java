@@ -2,9 +2,7 @@ package com.example.metafifth;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.database.Cursor;
 import android.net.Uri;
-import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 
 import android.bluetooth.BluetoothDevice;
@@ -23,7 +21,6 @@ import android.support.design.widget.NavigationView;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -31,9 +28,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v4.app.LoaderManager;
 
 import android.view.MenuItem;
+import android.widget.Button;
 
 
 import com.mbientlab.metawear.MetaWearBoard;
@@ -41,7 +38,6 @@ import com.mbientlab.metawear.android.BtleService;
 import com.mbientlab.metawear.module.Settings;
 import com.example.metafifth.FragmentBase.FragmentBus;
 
-import java.io.File;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -57,8 +53,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public final static String EXTRA_BT_DEVICE= "com.example.metasecond.MainActivity.EXTRA_BT_DEVICE",
                                FRAGMENT_KEY= "com.example.meta.FRAGMENT_KEY";
-    private static final String EXTRA_URI = "uri";
-    private static final int SELECT_FILE_REQ = 1, PERMISSION_REQUEST_READ_STORAGE= 2;
 
    private final static Map<Integer, Class<? extends FragmentBase>> FRAGMENT_CLASSES;
    static {
@@ -136,7 +130,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private BluetoothDevice btDevice;
     private final String RECONNECT_DIALOG_TAG= "reconnect_dialog_tag";
     private final Handler taskScheduler = new Handler();
-    private Uri fileStreamUri;
 
 
 
@@ -146,8 +139,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ///FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        ///fab.setOnClickListener(view -> ((FragmentBase) currentFragment).showHelpDialog());
+        Button disc = findViewById(R.id.disconnect);
+        disc.setOnClickListener(view->((FragmentBase) currentFragment).mwBoard.disconnectAsync());
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer,toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -183,7 +177,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Class fragmentClass = null;
         Fragment fragment;
-        fragment = null;
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         if (id == R.id.nav_home) {
             fragmentClass = HomeFragment.class;

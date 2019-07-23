@@ -1,23 +1,24 @@
 <resources>
-    <string name="app_name">MetaFifth</string>
+    <string name="app_name">Ortho+</string>
 
     <!--Strings in FragmentBase-->
-    <string name="error_fragment_bus">error fragment bus</string>
+    <string name="error_fragment_bus">ERROR FRAGMENT BUS</string>
     <string name="title_error">title error</string>
     <string name="error_unsupported_module">unsupported module</string>
-    <string name="label_ok">label ok</string>
+    <string name="label_ok">ΟΚ</string>
 
     <!--Strings in BluetoothActivity -->
     <string name="title_connecting">Connecting</string>
     <string name="title_select_device">Select device</string>
-    <string name="message_wait">wait</string>
-    <string name="label_cancel">label cancel</string>
+    <string name="message_wait">Wait</string>
+    <string name="label_cancel">Cancel</string>
 
     <!--Strings in MainActivity -->
     <string name="title_reconnect_attempt">Attempting to reconnect..</string>
     <string name="navigation_drawer_open">Nav Open</string>
     <string name="navigation_drawer_close">Nav Close</string>
     <string name="message_soft_reset">Soft reset</string>
+    <string name="disconnect">Disconnect</string>
 
     <!--Strings in navigation menu -->
     <string name="navigation_fragment_home">Home</string>
@@ -34,11 +35,11 @@
     <string name="navigation_fragment_magnetometer">Magnetometer</string>
     <string name="navigation_fragment_neopixel">NeoPixel</string>
     <string name="navigation_fragment_proximity">Proximity</string>
-    <string name="navigation_fragment_sensor_fusion">Sensor Fusion</string>
+    <string name="navigation_fragment_sensor_fusion">Workout</string>
     <string name="navigation_fragment_settings">Settings</string>
     <string name="navigation_fragment_temperature">Temperature</string>
 
-    <string name="my_text_header">Le menu</string>
+    <string name="my_text_header">Menu</string>
 
     <!--Strings in Home Fragment-->
     <string name="label_device_information">Device Info</string>
@@ -48,6 +49,7 @@
     <string name="label_device_section_switch">Section Switch</string>
     <string name="label_switch_pressed">Switch Pressed</string>
     <string name="label_switch_released">Switch Released</string>
+    <string name="calibrate">Calibrate</string>
 
     <!--Strings in Sensor Fragment -->
     <string name="label_clear">Clear</string>
