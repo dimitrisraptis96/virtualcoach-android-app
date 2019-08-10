@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/theview"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Switch xmlns:android="http://schemas.android.com/apk/res/android"
+    <Switch
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/label_start_sample"
@@ -13,17 +14,26 @@
         android:textColor="@color/popping"
         android:checked="false" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="horizontal" android:layout_width="fill_parent"
+    <LinearLayout
+        android:id="@+id/button-layout"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="?android:attr/buttonBarStyle" >
+        android:orientation="horizontal">
 
         <Button
-            android:layout_width="0dp"
+            android:id="@+id/clear-button"
+            style="?android:attr/buttonBarNeutralButtonStyle"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_width="wrap_content" />
+
+        <Button
+            android:id="@+id/save-button"
             style="?android:attr/buttonBarButtonStyle"
-            android:id="@+id/layout_two_button_left" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="wrap_content" />
 
     </LinearLayout>
 

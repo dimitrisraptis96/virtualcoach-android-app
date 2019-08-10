@@ -4,5 +4,6 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/nav_home" android:title="@string/navigation_fragment_home" android:checked="true" />
         <item android:id="@+id/nav_sensor_fusion" android:title="@string/navigation_fragment_sensor_fusion" />
+        <item android:id="@+id/nav_settings" android:title="Settings" />
     </group>
 </menu>

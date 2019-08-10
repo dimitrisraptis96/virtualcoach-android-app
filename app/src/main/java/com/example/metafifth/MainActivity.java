@@ -58,7 +58,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
    static {
        Map<Integer, Class<? extends FragmentBase>> tempMap= new LinkedHashMap<>();
           tempMap.put(R.id.nav_home, HomeFragment.class);
-          tempMap.put(R.id.nav_sensor_fusion,SensorFusionFragment.class);
+           tempMap.put(R.id.nav_sensor_fusion,SensorFusionFragment.class);
+           tempMap.put(R.id.nav_settings, SetInfoFragment.class);
         FRAGMENT_CLASSES= Collections.unmodifiableMap(tempMap);
     }
 
@@ -182,8 +183,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_home) {
             fragmentClass = HomeFragment.class;
         }
-        if (id == R.id.nav_sensor_fusion) {
+        else if (id == R.id.nav_sensor_fusion) {
             fragmentClass = SensorFusionFragment.class;
+        }
+        else if (id == R.id.nav_settings) {
+            fragmentClass = SetInfoFragment.class;
         }
 
         String fragmentTag= FRAGMENT_CLASSES.get(id).getCanonicalName();

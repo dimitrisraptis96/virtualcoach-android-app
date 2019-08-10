@@ -72,13 +72,15 @@
         <item>±16g</item>
     </string-array>
 
-   <!--Strings in Sensor Fusion-->
+    <!--Strings in Sensor Fusion-->
     <string name="config_name_sensor_fusion_data">Sensor Fusion Data</string>
     <string-array name="values_fusion_data">
         <item>Quaternion</item>
         <item>Euler Angles</item>
     </string-array>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

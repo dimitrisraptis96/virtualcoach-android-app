@@ -3,6 +3,7 @@ package com.example.metafifth;
 
 import android.os.Bundle;
 
+import android.util.Log;
 import android.webkit.ServiceWorkerClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -19,10 +20,11 @@ public abstract class SensorFragment extends FragmentBase {
     protected float min, max;
     protected Route streamRoute = null;
 
+    private static AppPreferences appPrefs;
 
     private final int layoutId;
     final String PUBLIC_URL = "https://flex-your-muscle.netlify.com/";
-    final String DEV_URL = "http://192.168.1.7" + ":8000/";
+    final String DEV_URL = "http://192.168.1.8" + ":8000";
 
     static WebView mWebView = null;
 
@@ -48,22 +50,36 @@ public abstract class SensorFragment extends FragmentBase {
     @Override
     public void onViewCreated(final View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        appPrefs=new AppPreferences(getActivity());
+        String ip = appPrefs.getValue("ip");
+        String name = appPrefs.getValue("name");
+
+        Log.i("SensorFragment", ip);
+        Log.i("SensorFragment", name);
+
         mWebView = view.findViewById(R.id.webview);
-        mWebView.loadUrl(PUBLIC_URL);
+        mWebView.loadUrl(ip);
 
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
-        Button clearButton= view.findViewById(R.id.layout_two_button_left);
+        Button clearButton = view.findViewById(R.id.clear_button);
         clearButton.setText(R.string.label_clear);
+        Button saveButton= view.findViewById(R.id.save_button);
+        saveButton.setText(R.string.label_save);
 
         //Button calibrateButton= view.findViewById(R.id.calibrate);
         //calibrateButton.setOnClickListener(view2->calibrate());
 
         Switch switched = view.findViewById(R.id.sample_control);
-        clearButton.setOnClickListener(view1 -> clean());
         clearButton.setOnClickListener(v -> {
+            clean();
             switched.setChecked(false);// Code here executes on main thread after user presses button
+        });
+
+        saveButton.setOnClickListener(v -> {
+            mWebView.post(() -> mWebView.evaluateJavascript("javascript: " + "saveData( " + name +" )", null));
         });
 
         ((Switch) view.findViewById(R.id.sample_control)).setOnCheckedChangeListener((compoundButton, b) -> {

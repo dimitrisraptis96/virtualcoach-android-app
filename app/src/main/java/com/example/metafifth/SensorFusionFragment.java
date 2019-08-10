@@ -25,7 +25,7 @@ public class SensorFusionFragment extends SensorFragment {
 
 
     public SensorFusionFragment() {
-        super(R.string.navigation_fragment_sensor_fusion, R.layout.fragment_sensor_spinner, -1f, 1f);
+        super(R.string.navigation_fragment_sensor_fusion, R.layout.fragment_sensor, -1f, 1f);
     }
 
 
