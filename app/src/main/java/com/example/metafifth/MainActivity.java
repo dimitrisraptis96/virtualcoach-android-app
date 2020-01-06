@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         if (savedInstanceState == null) {
-            onNavigationItemSelected(navigationView.getMenu().findItem(R.id.nav_home));
+            onNavigationItemSelected(navigationView.getMenu().findItem(R.id.nav_sensor_fusion));
        } else {
            currentFragment = getSupportFragmentManager().getFragment(savedInstanceState, FRAGMENT_KEY);
        }

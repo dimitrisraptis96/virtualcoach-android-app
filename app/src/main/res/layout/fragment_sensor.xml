@@ -15,27 +15,50 @@
         android:checked="false" />
 
     <LinearLayout
-        android:id="@+id/button-layout"
+        android:id="@+id/buttons-layout"
         style="?android:attr/buttonBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/clear-button"
+            android:id="@+id/clear_button"
             style="?android:attr/buttonBarNeutralButtonStyle"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_width="wrap_content" />
 
         <Button
-            android:id="@+id/save-button"
+            android:id="@+id/save_button"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_width="wrap_content" />
 
     </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/calib-button-layout"-->
+<!--        style="?android:attr/buttonBarStyle"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/start-position-btn"-->
+<!--            style="?android:attr/buttonBarNeutralButtonStyle"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_width="wrap_content" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/end-position-btn"-->
+<!--            style="?android:attr/buttonBarButtonStyle"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_width="wrap_content" />-->
+
+<!--    </LinearLayout>-->
 
 
     <View

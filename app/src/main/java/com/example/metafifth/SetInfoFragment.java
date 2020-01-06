@@ -41,12 +41,15 @@ public class SetInfoFragment extends FragmentBase {
 
         String previousIP = appPrefs.getValue("ip");
         String previousName = appPrefs.getValue("name");
+        String prevExercise = appPrefs.getValue("exercise");
 
         EditText ipEditText = (EditText)view.findViewById(R.id.ip);
         EditText nameEditText = (EditText)view.findViewById(R.id.name);
+        EditText exerciseEditText = (EditText)view.findViewById(R.id.exercise);
 
         ipEditText.setText(previousIP);
         nameEditText.setText(previousName);
+        exerciseEditText.setText(prevExercise);
 
         Button button = view.findViewById(R.id.submit_button);
 
@@ -54,11 +57,14 @@ public class SetInfoFragment extends FragmentBase {
         button.setOnClickListener(v -> {
             String ip = ipEditText.getText().toString();
             String name = nameEditText.getText().toString();
+            String exercise = exerciseEditText.getText().toString();
             appPrefs.setValue("ip",ip);
             appPrefs.setValue("name",name);
+            appPrefs.setValue("exercise",exercise);
 
             Log.i("SetInfoFragment", ip);
             Log.i("SetInfoFragment", name);
+            Log.i("SetInfoFragment", exercise);
 
         });
     }

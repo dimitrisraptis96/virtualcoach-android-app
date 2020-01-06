@@ -19,8 +19,9 @@ import bolts.CancellationTokenSource;
 public class SensorFusionFragment extends SensorFragment {
 
     private SensorFusionBosch sensorFusion;
-    private int srcIndex = 0;
     final CancellationTokenSource cts = new CancellationTokenSource();
+
+    private String mode = "updateQuaternion";
 
 
 
@@ -56,14 +57,18 @@ public class SensorFusionFragment extends SensorFragment {
     }*/
 
     @Override
+    protected void setMode(String newMode) {
+        mode = newMode;
+    }
+
+   @Override
     protected void setup() {
         sensorFusion.configure()
-                .mode(Mode.NDOF)
+                .mode(Mode.IMU_PLUS)
                 .accRange(AccRange.AR_16G)
                 .gyroRange(GyroRange.GR_2000DPS)
                 .commit();
 
-        if (srcIndex == 0) {
             sensorFusion.quaternion().addRouteAsync(source -> source.stream((data, env) -> {
                 final Quaternion quaternion = data.value(Quaternion.class);
                 double w=quaternion.w();
@@ -71,7 +76,9 @@ public class SensorFusionFragment extends SensorFragment {
                 double y=quaternion.y();
                 double z=quaternion.z();
 
-                mWebView.post(() -> mWebView.evaluateJavascript("javascript: " + "updateQuaternion(" + x + "," + y + "," + z + "," + w + ")", null));
+                if(mode == "idle") return;
+
+                mWebView.post(() -> mWebView.evaluateJavascript("javascript: " + mode + "(" + x + "," + y + "," + z + "," + w + ")", null));
 
             })).continueWith(task -> {
                 streamRoute = task.getResult();
@@ -80,12 +87,12 @@ public class SensorFusionFragment extends SensorFragment {
 
                 return null;
             });
-        }
+
     }
 
     @Override
     protected void clean() {
-    sensorFusion.stop();
+       sensorFusion.stop();
     }
 
     @Override
